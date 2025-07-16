@@ -1,0 +1,18 @@
+# requirements.txt
+
+# Core
+streamlit==1.35.0
+pandas==2.2.2
+
+# UI Enhancements
+plotly==5.21.0
+st-aggrid==0.3.5
+
+# Optional - for Excel export and enhanced CSV
+openpyxl==3.1.2
+xlrd==2.0.1
+
+# (Future-proofing) Firebase or Cloud Support (commented out)
+# firebase-admin==6.5.0
+# gspread==6.0.2
+# oauth2client==4.1.3
