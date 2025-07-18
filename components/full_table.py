@@ -2,15 +2,18 @@
 
 import streamlit as st
 import pandas as pd
-from utils.helpers import load_data, save_data, ensure_data_file
+import os
 
 DATA_PATH = "data/tracker_data.csv"
 
 def show_full_table():
-    st.subheader("📋 Full Table View with Customization")
+    st.subheader("📊 Full Table View with Customization")
 
-    ensure_data_file(DATA_PATH)  # ✅ make sure file exists with correct columns
-    df = load_data(DATA_PATH)
+    if not os.path.exists(DATA_PATH):
+        st.warning("No data available.")
+        return
+
+    df = pd.read_csv(DATA_PATH)
 
     if df.empty:
         st.info("No entries yet.")
@@ -24,12 +27,7 @@ def show_full_table():
         key="full_table_editor"
     )
 
-    # Save changes if any
-    if not edited_df.equals(df):
-        save_data(edited_df, DATA_PATH)
-        st.success("✅ Changes updated successfully.")
-
-    # Download button
+    # Option to download data
     csv = edited_df.to_csv(index=False).encode("utf-8")
     st.download_button(
         label="⬇️ Download Table as CSV",
@@ -37,3 +35,8 @@ def show_full_table():
         file_name="RAAP_Tracker_Export.csv",
         mime="text/csv",
     )
+
+    # Save changes if any
+    if edited_df.equals(df) == False:
+        st.success("✅ Changes updated successfully.")
+        edited_df.to_csv(DATA_PATH, index=False)
