@@ -8,7 +8,8 @@ from utils.helpers import sanitize_email, ensure_data_file, load_data, save_data
 
 # --- Constants ---
 DATA_PATH = "data/tracker_data.csv"
-DEPARTMENTS = ["ECE", "CSE", "ME", "CE", "Others"]
+DEPARTMENTS = ["Computer Science", "Electrical and Computer Engineering", "Mechanical Engineering", "Civil Engineering", "Biomedical Engineering", "Chemical Engineering", "Industrial Engineering", "Materials Science and Engineering", "Physics", "Mathematics", "Statistics", "Data Science", "Environmental Engineering", "Petroleum Engineering", "Systems Engineering", "Information Science", "Computational Science", "Aerospace Engineering", "Robotics", "Artificial Intelligence", "Psychology", "Cognitive Science", "Business Analytics", "Finance", "Economics", "Management Information Systems", "Education", "Public Health", "Health Informatics", "Digital Media", "Architecture", "Design", "Urban Planning", "Earth and Atmospheric Sciences", "Chemistry", "Biology", "Biotechnology", "Others"
+]
 
 # --- Utils ---
 def sanitize_email(raw_email):
